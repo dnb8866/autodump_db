@@ -2,7 +2,7 @@ import os
 import paramiko
 import time
 
-from datetime import date
+from datetime import date, datetime
 from dotenv import load_dotenv
 
 
@@ -34,5 +34,5 @@ def ssh_command(command) -> str:
 
 while True:
     ssh_command(f'pg_dump -U denis family_finances > /home/denis/db/dump_db_family_finances_{date.today()}.sql')
-    print("ok")
+    print(f"{datetime.today()} ok")
     time.sleep(28800)
