@@ -6,6 +6,20 @@ from datetime import date
 client = paramiko.SSHClient()
 
 
+def ssh_connect(func):
+    def wrapper(*args, **kwargs):
+        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        client.connect(hostname=,
+                       username=,
+                       password=,
+                       port=)
+        data = func(*args, **kwargs)
+        client.close()
+        return data
+    return wrapper
+
+
+@ssh_connect
 def ssh_command(command) -> str:
     stdin, stdout, stderr = client.exec_command(command)
     return stdout.read().decode("utf-8")
