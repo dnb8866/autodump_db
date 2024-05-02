@@ -11,6 +11,7 @@ services:
   autodump_db:
     env_file:
       - .env
+    container_name: autodump_db
     restart: always
     build:
       context: .
