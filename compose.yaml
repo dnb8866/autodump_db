@@ -9,6 +9,9 @@
 # https://github.com/docker/awesome-compose
 services:
   autodump_db:
+    env_file:
+      - .env
+    restart: always
     build:
       context: .
     network_mode: host
