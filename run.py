@@ -34,5 +34,7 @@ def ssh_command(command) -> str:
 
 while True:
     ssh_command(f'pg_dump -U denis family_finances > /home/denis/db/dump_db_family_finances_{date.today()}.sql')
+    ssh_command(f'pg_dump -U denis ci > /home/denis/db/dump_db_ci_{date.today()}.sql')
+    ssh_command(f'pg_dump -U spaced_repetition ci > /home/denis/db/dump_db_ci_{date.today()}.sql')
     print(f"{datetime.today()} ok")
     time.sleep(28800)
